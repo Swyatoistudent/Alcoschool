@@ -8,12 +8,12 @@ class List_Node:
         l1 = self
         i = 0
         while i < num:
-            if self.next is None:
+            if l1.next is None:
                 break
-            lis = self.next
+            l1 = l1.next
             i += 1
         l2 = List_Node(value, l1.next)
-        self.next = l2
+        l1.next = l2
 
     '''add elem in "tail" '''
 
@@ -39,5 +39,8 @@ class List_Node:
             self = self.next
         self.next = None
 
-
+head= List_Node(1,None)
+head.add_elem_index(1,2)
+head.add_elem_index(0,3)
+print(head.next.value)
 
