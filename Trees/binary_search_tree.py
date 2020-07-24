@@ -12,33 +12,6 @@ class BinSearchTree:
     def __init__(self):
         self.head = None
 
-    def dfs(self):
-        t = self.head
-
-        def dfs1(tree):
-            if tree is None:
-                return None
-            print(tree.value)
-            dfs1(tree.left)
-            dfs1(tree.right)
-
-        dfs1(t)
-
-    def bfs(self):
-
-        q = Queue()
-        curr = self.head
-        while curr is not None:
-            if curr.left is not None:
-                q.put(curr.left)
-            if curr.right is not None:
-                q.put(curr.right)
-            print(curr.value)
-            if q.empty():
-                break
-            else:
-                curr = q.get()
-
     def to_list_dfs(self, mode):  # mode : pre, in, post
 
         t = self.head
