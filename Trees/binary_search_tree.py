@@ -39,7 +39,7 @@ class BinSearchTree:
             else:
                 curr = q.get()
 
-    def to_list(self):
+    def to_list_dfs(self, mode):  # mode : pre, in, post
 
         t = self.head
         res = []
@@ -47,11 +47,32 @@ class BinSearchTree:
         def dfs1(tree):
             if tree is None:
                 return None
-            res.append(tree.value)
+            if mode == "pre":
+                res.append(tree.value)
             dfs1(tree.left)
+            if mode == "in":
+                res.append(tree.value)
             dfs1(tree.right)
+            if mode == "post":
+                res.append(tree.value)
 
         dfs1(t)
+        return res
+
+    def to_list_bfs(self):
+        res = []
+        q = Queue()
+        curr = self.head
+        while curr is not None:
+            if curr.left is not None:
+                q.put(curr.left)
+            if curr.right is not None:
+                q.put(curr.right)
+            res.append(curr.value)
+            if q.empty():
+                break
+            else:
+                curr = q.get()
         return res
 
     def add(self, val):
