@@ -152,15 +152,3 @@ class AVLTree:
                 curr = q.get()
         return res
 
-
-l1 = AVLTree()
-
-l1.insert(12)
-
-l1.insert(9)
-l1.insert(10)
-
-
-
-
-print(l1.root.right.value)
