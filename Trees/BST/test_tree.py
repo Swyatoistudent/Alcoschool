@@ -1,5 +1,5 @@
 import pytest
-from Trees.binary_search_tree import BinSearchTree
+from Trees.BST.binary_search_tree import BinSearchTree
 
 
 @pytest.mark.parametrize('values, pre_dfs_return', [
@@ -9,7 +9,6 @@ from Trees.binary_search_tree import BinSearchTree
 ])
 def test_tree_dfs_pre(values, pre_dfs_return):
     l1 = BinSearchTree()
-
     for v in values:
         l1.add(v)
     assert l1.to_list_dfs("pre") == pre_dfs_return

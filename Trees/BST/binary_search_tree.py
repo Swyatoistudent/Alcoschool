@@ -2,7 +2,7 @@ from queue import Queue
 
 
 class TreeNode:
-    def __init__(self, value, left, right):
+    def __init__(self, value, left=None, right=None):
         self.left = left
         self.right = right
         self.value = value
@@ -16,12 +16,14 @@ class BinSearchTree:
 
         t = self.head
         res = []
+        d = 0
 
         def dfs1(tree):
             if tree is None:
                 return None
             if mode == "pre":
                 res.append(tree.value)
+
             dfs1(tree.left)
             if mode == "in":
                 res.append(tree.value)
@@ -68,3 +70,19 @@ class BinSearchTree:
                 else:
                     curr.left = TreeNode(val, None, None)
                     break
+
+
+l1 = BinSearchTree()
+l1.add(13)
+l1.add(10)
+l1.add(15)
+l1.add(16)
+l1.add(5)
+l1.add(11)
+l1.add(4)
+l1.add(6)
+l1.add(3)
+res = l1.to_list_dfs("post")
+print(res)
+
+
